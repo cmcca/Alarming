@@ -27,6 +27,5 @@
     "johnny-five": "^1.0.0",
     "node-spotify-api": "^1.1.1",
     "serialport": "^7.1.4"
-
   }
 }
