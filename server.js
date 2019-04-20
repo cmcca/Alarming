@@ -16,17 +16,18 @@ require("./app/routes/html-routes")(app);
 
 
 
-// Starting the server ------------------------------------/
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
+// Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
-module.exports = app;
+app.listen(PORT, function() {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
 
-//How to link handlebar variables to javascript etc. How to get the id of something from the handlebar file and change it
-//How to naviate object so I can select child name etc when retriving user from mysql
