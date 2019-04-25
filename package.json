@@ -21,12 +21,12 @@
     "arduino": "^0.2.3",
     "axios": "^0.18.0",
     "dotenv": "^7.0.0",
+    "dotenv-extended": "^2.4.0",
     "etherport-client": "^0.1.4",
     "express": "^4.16.4",
     "firmata": "^2.0.0",
     "johnny-five": "^1.0.0",
     "node-spotify-api": "^1.1.1",
     "serialport": "^7.1.4"
-
   }
 }
