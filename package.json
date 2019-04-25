@@ -1,26 +1,32 @@
 {
-  "name": "mern",
+  "name": "Alarming",
   "version": "1.0.0",
-  "description": "Mern Demo",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmcca/Alarming.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+  "bugs": {
+    "url": "https://github.com/cmcca/Alarming/issues"
   },
+  "homepage": "https://github.com/cmcca/Alarming#readme",
   "dependencies": {
-    "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "arduino": "^0.2.3",
+    "axios": "^0.18.0",
+    "dotenv": "^7.0.0",
+    "etherport-client": "^0.1.4",
+    "express": "^4.16.4",
+    "firmata": "^2.0.0",
+    "johnny-five": "^1.0.0",
+    "node-spotify-api": "^1.1.1",
+    "serialport": "^7.1.4"
+
   }
 }

@@ -1,7 +1,20 @@
-const express = require("express");
-const path = require("path");
-const PORT = process.env.PORT || 3001;
-const app = express();
+var dotenv = require("dotenv").config();
+var express = require("express");
+var path = require("path")
+
+var app = express();
+var PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use("/public",express.static(path.join(__dirname, "public")));
+
+// Routes
+require("./app/routes/api-routes")(app);
+require("./app/routes/html-routes")(app);
+
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -17,3 +30,4 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
