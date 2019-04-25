@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path")
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -18,7 +18,7 @@ require("./app/routes/html-routes")(app);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("client/public"));
 }
 
 // Send every request to the React app

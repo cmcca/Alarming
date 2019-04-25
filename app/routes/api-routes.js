@@ -26,7 +26,15 @@ app.get("/song/:title", function(req,res){
             console.log("__________________________________________")
             console.log("Album Name: " + JSON.stringify(data.tracks.items[0].album.name));
             console.log("__________________________________________")
-            res.json(data.tracks.items[0])
+            
+            function display(){
+             var displayer = [];
+             displayer = data.tracks.items[0]
+            res.json(displayer);
+            }
+            display();
+            
+            
         });
     
     })
