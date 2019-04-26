@@ -27,6 +27,7 @@
     "firmata": "^2.0.0",
     "johnny-five": "^1.0.0",
     "node-spotify-api": "^1.1.1",
+    "path": "^0.12.7",
     "serialport": "^7.1.4"
   }
 }
