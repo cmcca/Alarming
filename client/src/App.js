@@ -5,6 +5,10 @@ import Splash from './components/Splash';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
 import "./App.css";
+import dotenv from 'dotenv/config';
+import Spotify from 'node-spotify-api';
+import axios from "axios";
+import Login from "./components/login"
 
 
 class App extends Component {
@@ -33,6 +37,14 @@ class App extends Component {
             <Fragment>
               <Nav {...props} />
               <Settings {...props} />
+            </Fragment>
+          )
+        } />
+        <Route exact path="/login" render={
+          props => (
+            <Fragment>
+              <Nav {...props} />
+              <Login {...props} />
             </Fragment>
           )
         } />
