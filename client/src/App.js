@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Splash from './components/Splash';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
+import Login from './components/Login';
 import "./App.css";
 
 
@@ -33,6 +34,13 @@ class App extends Component {
             <Fragment>
               <Nav {...props} />
               <Settings {...props} />
+            </Fragment>
+          )
+        } />
+        <Route exact path="login" render={
+          props =>(
+            <Fragment>
+              <Login {...props} />
             </Fragment>
           )
         } />

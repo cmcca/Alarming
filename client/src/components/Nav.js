@@ -7,7 +7,7 @@ function Nav(){
         <li className="nav-item">
           <Link
             to="/alarm"
-            className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+            className={window.location.pathname === "/alarm" ? "nav-link active" : "nav-link"}
           >
             Alarm
           </Link>
@@ -15,7 +15,7 @@ function Nav(){
         <li className="nav-item">
           <Link
             to="/settings"
-            className={window.location.pathname === "/discover" ? "nav-link active" : "nav-link"}
+            className={window.location.pathname === "/settings" ? "nav-link active" : "nav-link"}
           >
             Settings
           </Link>
