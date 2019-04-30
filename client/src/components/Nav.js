@@ -3,24 +3,26 @@ import {Link} from 'react-router-dom';
 
 function Nav(){
     return (
-        <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <Link
+      <wrapper id="navWrap">
+      <nav>
+      <button type="button" className="btn-block">
+            <Link
             to="/alarm"
-            className={window.location.pathname === "/about" ? "nav-link active" : "nav-link"}
+            className={window.location.pathname === "/alarm" ? "nav-link active" : "nav-link"}
           >
-            Alarm
+            alarm
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link
+      </button>
+      <button type="button" className="btn-block">
+                <Link
             to="/settings"
-            className={window.location.pathname === "/discover" ? "nav-link active" : "nav-link"}
+            className={window.location.pathname === "/settings" ? "nav-link active" : "nav-link"}
           >
-            Settings
+            settings
           </Link>
-        </li>
-      </ul>
+      </button>
+      </nav>
+      </wrapper>
     )
 }
 
