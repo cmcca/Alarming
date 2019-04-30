@@ -1,9 +1,25 @@
 import React from 'react';
-import alarming from './alarming.png'
+import { Link } from "react-router-dom";
+import logo from './alarming.svg'
+
+
 
 function Splash(){
     return(
-        <img src={alarming} alt="Alarming" id= "logo" />
+        <div className="container">
+            <img src={logo} alt="Alarming" id="logo" />
+
+                <div className="loginButton">
+                <Link
+                to="/login"
+                className={window.location.pathname === "/login" ? "loginButton-active" : "loginButton"}
+                >
+                Boom
+                </Link>
+                </div>
+
+        </div>  
+
     )
 }
 
