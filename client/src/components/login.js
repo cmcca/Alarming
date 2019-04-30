@@ -35,7 +35,7 @@ function Login(){
             <div class = "row flex">
             
               <div class = "col-12">
-              <input type = "button" id = "Submit"></input>
+              <button type = "button" class = "block" id = "Submit">Login</button>
               </div>
             
             </div>
