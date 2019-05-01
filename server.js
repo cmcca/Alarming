@@ -14,18 +14,15 @@ app.use(express.json());
 require("./app/routes/api-routes")(app);
 require("./app/routes/html-routes")(app);
 
-
+console.log("Server working")
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+console.log("Server Connected")
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

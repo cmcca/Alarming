@@ -37,7 +37,7 @@ class App extends Component {
             </Fragment>
           )
         } />
-        <Route exact path="login" render={
+        <Route exact path="/login" render={
           props =>(
             <Fragment>
               <Login {...props} />
