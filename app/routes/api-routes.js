@@ -1,12 +1,11 @@
 var dotenv = require('dotenv').config();
-var Spotify = require('node-spotify-api');
+var SpotifyAPI = require('node-spotify-api');
 var axios = require("axios");
-var spotify = new Spotify({
-    id: process.env.SPOTIFY_ID,
-    secret: process.env.SPOTIFY_SECRET
+var spotify = new SpotifyAPI({
+    id: "c2ef3291351c423bb7d87d6475fe353b",
+    secret: "32d48eb30c634615b81054c1a3a5aa16"
   });
-var express = require("express");
-var app = express();
+
 
 module.exports = function(app) {
 

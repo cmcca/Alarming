@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 
-
 var Schema = mongoose.Schema;
 
 
@@ -17,6 +16,9 @@ var userSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  Status: {
+    type: String
   }
 });
 
