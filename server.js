@@ -6,9 +6,10 @@ var mongoose = require("mongoose");
 var app = express();
 var PORT = process.env.PORT || 3001;
 
-var MONGODB_URI = "d";
+var MONGODB_URI = "mongodb://heroku_glgqmn6c:<dbpassword>@ds151076.mlab.com:51076/heroku_glgqmn6c";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
   .catch(console.error());
+  // { user: "heroku_glgqmn6c", account: "heroku_glgqmn6c" }
 
 
 // Middleware
