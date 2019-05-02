@@ -1,11 +1,12 @@
 var dotenv = require("dotenv").config();
 var express = require("express");
-var path = require("path")
+var path = require("path");
+var mongoose = require("mongoose");
 
 var app = express();
 var PORT = process.env.PORT || 3001;
 
-var MONGODB_URI = ;
+var MONGODB_URI = "d";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
   .catch(console.error());
 
