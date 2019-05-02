@@ -5,10 +5,14 @@ var path = require("path")
 var app = express();
 var PORT = process.env.PORT || 3001;
 
+var MONGODB_URI = ;
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
+  .catch(console.error());
+
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// app.use("/public",express.static(path.join(__dirname, "public")));
 
 // Routes
 require("./app/routes/api-routes")(app);
