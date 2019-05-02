@@ -1,14 +1,15 @@
 import React from 'react';
 import Moment from "react-moment";
 
+var moment = require("moment");
+
+
 function Alarm(){
-    const dateToFormat = '1976-04-19T12:59-0500';
+    const now = moment();
         return(
-            <div className="container-fluid">
-            <div className="currentTime">
-            <Moment>{dateToFormat}</Moment>
-            </div>
-            </div>
+
+            <Moment>{now}</Moment>
+
         )
 }
 
