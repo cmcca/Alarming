@@ -6,11 +6,9 @@ var mongoose = require("mongoose");
 var app = express();
 var PORT = process.env.PORT || 3001;
 
-var MONGODB_URI = "mongodb://heroku_glgqmn6c:<dbpassword>@ds151076.mlab.com:51076/heroku_glgqmn6c";
+var MONGODB_URI = "mongodb://JasonNelson:Nelson2009@ds151076.mlab.com:51076/heroku_glgqmn6c";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
   .catch(console.error());
-  // { user: "heroku_glgqmn6c", account: "heroku_glgqmn6c" }
-
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +17,7 @@ app.use(express.json());
 // Routes
 require("./app/routes/api-routes")(app);
 require("./app/routes/html-routes")(app);
+require("./controllers/userdb")(app);
 
 console.log("Server working")
 
@@ -28,6 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 console.log("Server Connected")
+
 
 
 app.listen(PORT, function() {

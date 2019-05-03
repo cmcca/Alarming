@@ -1,19 +1,18 @@
 var db = require("../models");
 var express = require("express");
-var apps = express();
+var app = express();
 
-module.exports = function (app){
+module.exports = function (apps){
 
-apps.get("/user/:Name/:Email", function(req,res){
+  console.log("Connected to the userdb file");
 
-    var result = {};
+app.get("/user/:Name/:Email", function(req,res){
 
-    result.Name = req.params.User;
-    result.Email = req.params.Email;
+  res.send("Hello"); 
     result.Status = "Success";
     
 //Search DB for email
-db.User.find({Name : result.Name})
+db.User.find({Name : result.Email})
     .then(function (dbUser) {
       // If we were able to successfully find User, send them back to the client
       res.json(dbUser);
@@ -28,6 +27,5 @@ db.User.find({Name : result.Name})
     });
 
   })
-
 
 }
