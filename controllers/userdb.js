@@ -1,31 +1,34 @@
 var db = require("../models");
-var express = require("express");
-var app = express();
 
-module.exports = function (apps){
+
 
   console.log("Connected to the userdb file");
 
-app.get("/user/:Name/:Email", function(req,res){
+  var check  = {
+      find(req,res,Name, Email){
 
-  res.send("Hello"); 
-    result.Status = "Success";
-    
-//Search DB for email
-db.User.find({Name : result.Email})
-    .then(function (dbUser) {
-      // If we were able to successfully find User, send them back to the client
-      res.json(dbUser);
-      console.log("Success")
+         db.User.find({Name: Name})
+         .then(function(dbUser){
+           if (dbUser.length > 0){
+          res.json(dbUser);
+          console.log("Success")
+           }
+           else{
+             var result = {};
+             result.Name = Name;
+             result.Email = Email;
+             db.User.create(result)
+             res.send("User Created: " + JSON.stringify(result))
+             console.log(JSON.stringify(result))
+           }
+         })
+         .catch(function (err) {
+          // If an error occurred, send it to the client
+          res.json(err);
+          console.log("failure")
+        });
 
+      }
+  }
 
-    })
-    .catch(function (err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-      console.log("failure")
-    });
-
-  })
-
-}
+module.exports = check;

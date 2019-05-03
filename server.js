@@ -2,7 +2,7 @@ var dotenv = require("dotenv").config();
 var express = require("express");
 var path = require("path");
 var mongoose = require("mongoose");
-
+var check = require("./controllers/userdb");
 var app = express();
 var PORT = process.env.PORT || 3001;
 
@@ -17,7 +17,7 @@ app.use(express.json());
 // Routes
 require("./app/routes/api-routes")(app);
 require("./app/routes/html-routes")(app);
-require("./controllers/userdb")(app);
+
 
 console.log("Server working")
 
@@ -28,6 +28,11 @@ if (process.env.NODE_ENV === "production") {
 
 console.log("Server Connected")
 
+app.get("/user/:Name/:Email", function(req, res){
+  nameofPerson = req.params.Name;
+  emailofPerson = req.params.Email;
+check.find(req,res,nameofPerson,emailofPerson)
+});
 
 
 app.listen(PORT, function() {
