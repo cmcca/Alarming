@@ -14,7 +14,7 @@ app.use("/public",express.static(path.join(__dirname, "public")));
 
 // Routes
 require("./app/routes/api-routes")(app);
-require("./app/routes/html-routes")(app);
+
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/users";
 
