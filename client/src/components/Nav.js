@@ -5,6 +5,8 @@ function Nav(){
     return (
       <wrapper id="navWrap">
       <nav>
+        <h1>Welcome, </h1>
+        <h1 id = "nameOfPerson">Placeholder</h1>
       <button type="button" className="btn-block">
             <Link
             to="/alarm"

@@ -5,21 +5,16 @@ var db = require("../models");
   console.log("Connected to the userdb file");
 
   var check  = {
-      find(req,res,Name, Email){
+      find(req,res,Name, Password){
 
-         db.User.find({Name: Name})
+         db.User.find({Name: Name, Password : Password})
          .then(function(dbUser){
            if (dbUser.length > 0){
           res.json(dbUser);
           console.log("Success")
            }
            else{
-             var result = {};
-             result.Name = Name;
-             result.Email = Email;
-             db.User.create(result)
-             res.send("User Created: " + JSON.stringify(result))
-             console.log(JSON.stringify(result))
+             res.send("No User Found")
            }
          })
          .catch(function (err) {
@@ -28,7 +23,16 @@ var db = require("../models");
           console.log("failure")
         });
 
+      },
+      create(req,res,Name, Password){
+        var result = {};
+        result.Name = Name;
+        result.Password = Password
+        db.User.create(result)
+        res.send("User Created: " + JSON.stringify(result))
+        console.log(JSON.stringify(result))
       }
+      
   }
 
 module.exports = check;

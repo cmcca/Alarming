@@ -28,10 +28,18 @@ if (process.env.NODE_ENV === "production") {
 
 console.log("Server Connected")
 
-app.get("/user/:Name/:Email", function(req, res){
+app.get("/user/login/:Name/:Password", function(req, res){
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   nameofPerson = req.params.Name;
-  emailofPerson = req.params.Email;
-check.find(req,res,nameofPerson,emailofPerson)
+  passwordofPerson = req.params.Password;
+check.find(req,res,nameofPerson,passwordofPerson)
+});
+
+app.get("/user/signup/:Name/:Password", function(req, res){
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  nameofPerson = req.params.Name;
+  passwordofPerson = req.params.Password;
+check.create(req,res,nameofPerson,passwordofPerson)
 });
 
 

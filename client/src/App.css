@@ -98,3 +98,6 @@ a.nav-link{
   cursor: pointer;
   text-align: center;
 }
+#wronguser, #signcomp{
+display: none;
+}
