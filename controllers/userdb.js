@@ -32,11 +32,14 @@ var db = require("../models");
         res.send("User Created: " + JSON.stringify(result))
         console.log(JSON.stringify(result))
       },
-      Alarm(req,res,alarmName,alarmTime){
-        var alarms = {};
-        alarms.alarmName;
-        alarms.alarmTime;
-      }
+      // Alarm(req,res,alarmName,alarmTime){
+      //   var alarms = {};
+      //   alarms.alarmName = alarmName;
+      //   alarms.alarmTime = alarmTime;
+      //   db.Alarms.create(alarms)
+      //   res.send("Alarm Created: " + alarms)
+      //   console.log(JSON.stringify(alarms))
+      // }
       
   }
 

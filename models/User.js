@@ -17,9 +17,10 @@ var userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  Alarms: {
-    type: Object
-  }
+  // Alarms: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Alarms"
+  // }
 
 });
 

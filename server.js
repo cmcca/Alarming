@@ -42,6 +42,12 @@ app.get("/user/signup/:Name/:Password", function(req, res){
 check.create(req,res,nameofPerson,passwordofPerson)
 });
 
+// app.get("/user/alarm/:alarmName/:alarmTime", function(req,res){
+//   alarmName = req.params.alarmName;
+//   alarmTime = req.params.alarmTime;
+//   check.Alarm(req,res,alarmName,alarmTime)
+// })
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

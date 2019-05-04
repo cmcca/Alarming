@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 
-var userSchema = new Schema({
+var alarmSchema = new Schema({
 
   alarmName: {
     type: String,
@@ -15,6 +15,7 @@ var userSchema = new Schema({
 
 });
 
-var User = mongoose.model("user", userSchema);
+var Alarms = mongoose.model("Alarms", alarmSchema);
 
-module.exports = User;
+
+module.exports = Alarms;
