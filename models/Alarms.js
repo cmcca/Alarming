@@ -5,21 +5,13 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
 
-  Name: {
+  alarmName: {
     type: String,
     required: true
   },
-  Password: {
-    type: String,
-    required: true
+  alarmTime: {
+    type: Number,
   },
-  Date: {
-    type: Date,
-    default: Date.now
-  },
-  Alarms: {
-    type: Object
-  }
 
 });
 

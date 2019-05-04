@@ -31,6 +31,11 @@ var db = require("../models");
         db.User.create(result)
         res.send("User Created: " + JSON.stringify(result))
         console.log(JSON.stringify(result))
+      },
+      Alarm(req,res,alarmName,alarmTime){
+        var alarms = {};
+        alarms.alarmName;
+        alarms.alarmTime;
       }
       
   }
