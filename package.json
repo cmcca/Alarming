@@ -1,0 +1,25 @@
+{
+  "name": "alarming",
+  "version": "1.0.0",
+  "description": "## About This Boilerplate",
+  "main": "server.js",
+  "dependencies": {
+    "node": "^12.1.0",
+    "node-bin-setup": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmcca/Alarming.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmcca/Alarming/issues"
+  },
+  "homepage": "https://github.com/cmcca/Alarming#readme"
+}
