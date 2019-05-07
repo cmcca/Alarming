@@ -1,7 +1,6 @@
 var db = require("../models");
 
 
-
   console.log("Connected to the userdb file");
 
   var check  = {
