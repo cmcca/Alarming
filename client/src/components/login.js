@@ -2,19 +2,19 @@ import React from 'react';
 
 function Login(){
     return(
-        <div class = "loginPage">
+        <div className = "loginPage">
           <br/>
-           <div class = "row">
+           <div className = "row">
 
-             <div class = "col-12 flex">
+             <div className = "col-12 flex">
              <h1>Enter Login: </h1>
              </div>
 
             </div>
 
-            <div class = "row">
+            <div className = "row">
             
-              <div class = "col-12 flex">
+              <div className = "col-12 flex">
               <h2>Username: </h2>
               <br/>
               <input type = "text" id = "Username"></input>
@@ -22,9 +22,9 @@ function Login(){
             
             </div>
 
-            <div class = "row">
+            <div className = "row">
             
-              <div class = "col-12 flex">
+              <div className = "col-12 flex">
               <h2>Password: </h2>
               <br/>
               <input type = "text" id = "Password"></input>
@@ -32,9 +32,9 @@ function Login(){
             
             </div>
 
-            <div class = "row flex">
+            <div className = "row flex">
             
-              <div class = "col-12">
+              <div className = "col-12">
               <button type = "button" class = "block" id = "Submit">Login</button>
               </div>
             
