@@ -14,7 +14,7 @@ if (data.length > 0){
    window.location.replace("http://localhost:3000/alarm");
 }
 else{
-   $("#wronguser").css("display", "block");
+    window.location.replace("http://localhost:3000/signup");
 }
 })
 
@@ -45,7 +45,7 @@ $("#SubmitSign").on("click", function(){
 })
 
 $("#Login_Page").on("click", function(){
-    window.location.href("https://localhost:3000/login")
+    window.location.replace("https://localhost:3000/login")
 })
 
 
@@ -63,33 +63,4 @@ $("#SubmitSong").on("click", function(){
     $(song_dump).append("<p class='card-text'>"+ "Click Below To Set The Alarm" + "</p><button type = 'button class='btn btn-primary'>"+"Set Alarm"+"</button></div></div>")
 })
 
-window.onSpotifyWebPlaybackSDKReady = () => {
-    const token = 'BQBAjA1k_0RAdFJ30SeAC3HlnpufKV1TYURFESrDkrXhX0PawvOdYHxZ0q9kZVNotwW6xcOuNnvHZL2YeO6PH2iJtr7r1OZeb3YTL4aPWevrc4BORf-iBn_wLRNrcIol1H6LbqrQbIsPgAmnYhhHlx2aT-mR0BlpeYwS2Q';
-    const player = new Spotify.Player({
-      name: 'Web Playback SDK Quick Start Player',
-      getOAuthToken: cb => { cb(token); }
-    });
-  
-    // Error handling
-    player.addListener('initialization_error', ({ message }) => { console.error(message); });
-    player.addListener('authentication_error', ({ message }) => { console.error(message); });
-    player.addListener('account_error', ({ message }) => { console.error(message); });
-    player.addListener('playback_error', ({ message }) => { console.error(message); });
-  
-    // Playback status updates
-    player.addListener('player_state_changed', state => { console.log(state); });
-  
-    // Ready
-    player.addListener('ready', ({ device_id }) => {
-      console.log('Ready with Device ID', device_id);
-    });
-  
-    // Not Ready
-    player.addListener('not_ready', ({ device_id }) => {
-      console.log('Device ID has gone offline', device_id);
-    });
-  
-    // Connect to the player!
-    player.connect();
-  };
 })

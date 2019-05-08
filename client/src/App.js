@@ -5,8 +5,7 @@ import Splash from './components/Splash';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
 import Login from './components/Login';
-import Signup from "./components/Signup";
-import Pick_A_Song from "./components/Pick_A_Song";
+import Signup from "./components/SignUp";
 import "./App.css";
 
 
@@ -50,14 +49,6 @@ class App extends Component {
           props =>(
             <Fragment>
               <Signup {...props} />
-            </Fragment>
-          )
-        } />
-        <Route exact path="/pick_song" render={
-          props =>(
-            <Fragment>
-              <Nav {...props}/>
-              <Pick_A_Song {...props} />
             </Fragment>
           )
         } />
