@@ -8,6 +8,7 @@ var db = require("../models");
 
          db.User.find({Name: Name, Password : Password})
          .then(function(dbUser){
+           console.log(dbUser)
            if (dbUser.length > 0){
           res.json(dbUser);
           console.log("Success")
@@ -31,14 +32,6 @@ var db = require("../models");
         res.send("User Created: " + JSON.stringify(result))
         console.log(JSON.stringify(result))
       },
-      // Alarm(req,res,alarmName,alarmTime){
-      //   var alarms = {};
-      //   alarms.alarmName = alarmName;
-      //   alarms.alarmTime = alarmTime;
-      //   db.Alarms.create(alarms)
-      //   res.send("Alarm Created: " + alarms)
-      //   console.log(JSON.stringify(alarms))
-      // }
       
   }
 
