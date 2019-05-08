@@ -28,8 +28,8 @@ body {
 #logo {
 
   display: block;
-  min-width: 95%;
-  margin-top: 40%;
+  min-width: 90%;
+  margin-top: 25%;
   margin-left: auto;
   margin-right: auto;
 
@@ -75,28 +75,25 @@ a.nav-link{
   font-size: 5vw;
 }
 
-.currentTime {
+h1.currentTime {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20%;
-  font-size: 3vw;
+  min-width:100%;
+  text-align: center;
+  margin:auto;
+  font-size: 8vw;
   font-family: 'Montserrat', sans-serif;
+}
+#alarmTime {
+  font-size: 10vw;
+  font-family: 'Montserrat', sans-serif;
+  min-width: 100%;
+  text-align: center;
+
 }
 
 .flex{
   display: flex;
   justify-content: center;
- }
-
- .button {
-  display: block;
-  width: 100%;
-  border: none;
-  padding: 10% 50% 10% 60%;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
 }
 #wronguser, #signcomp{
 display: none;

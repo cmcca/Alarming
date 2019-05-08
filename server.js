@@ -16,9 +16,12 @@ app.use(express.json());
 
 // Routes
 require("./app/routes/api-routes")(app);
-require("./app/routes/html-routes")(app);
 
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/users";
+
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI);
 console.log("Server working")
 
 // Serve up static assets (usually on heroku)

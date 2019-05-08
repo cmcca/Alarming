@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav'; 
 import Splash from './components/Splash';
+import Clock from './components/Clock';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
 import Login from './components/Login';
@@ -25,6 +26,7 @@ class App extends Component {
           props => (
             <Fragment>
               <Nav {...props} />
+              <Clock {...props} />
               <Alarm {...props} />
 
             </Fragment>
