@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import Moment from "react-moment";
+import moment from "moment";
 
-var moment = require("moment");
-
- // SET ALARM TONE IN A VARIABLE
- var audioAlert = new Audio('audioAlert_file.mp3');
+//  // SET ALARM TONE IN A VARIABLE
+ var audioAlert = new Audio('');
  audioAlert.play();
 
- //// CREATE a FN for the current time and date 
- // Include hrs, mins, secs; differenciate Standard vs Military
+//  //// CREATE a FN for the current time and date 
+//  // Include hrs, mins, secs; differenciate Standard vs Military
  function allTime() {
      var currentTime = moment();
      // now = new Date();
@@ -39,35 +37,57 @@ var moment = require("moment");
      if (hr == 12) {
          add = "pm";
      }
-     if (hr == 00) {
-         hr = "12";
-     }
+    //  if (hr == 00) {
+    //      hr = "12";
+    //  }
      // Logic: SET clock values equal to current time in the browser
      document.hours.clock.value = (hr <= 9) ? "0" + hr : hr;
      document.minutes.clock.value = min;
      document.seconds.clock.value = sec;
      document.ampm.clock.value = add;
      // Check if values are met every second; if met, invoke FN
-     setTimeout("allTime()", 1000);
-
+     setInterval("allTime()", 1000);
  }
- // Logic: CREATE a variable to hold our alert tone 
- // SET timer tone to to play through a new browser window
- playit = false
- function playmusic() {
-     musicwin = window.open("", "", "width=100,height=100")
+// Save alarms in local storage
+ const setAlarm = (h,m) =>{ 
+    activeAlarms++;
+    localStorage.setItem('alarm '+activeAlarms,  JSON.stringify({
+      hour: h,
+      minute: m
+    }));
+  }
+// APPEND alarms to page body
+  const appendAlarm = (h,m) =>{ 
+    let container = document.createElement('div');
+    let hour = document.createTextNode('Hour: '+h);
+    let minute = document.createTextNode('Miniute: '+m);
+    container.appendChild(hour);
+    container.appendChild(minute);
+    alarms.appendChild(container);
+  }
+  
+  addAlarm.addEventListener('click',function(){
+    setAlarm(hour.value, minute.value);
+    appendAlarm(hour.value, minute.value);
+  });
+
+//  // Logic: CREATE a variable to hold our alert tone 
+//  // SET timer tone to to play through a new browser window
+ playIt = false
+ function playMusic() {
+     musicWin = window.open("", "", "width=100,height=100")
      if (navigator.appName == "Microsoft Internet Explorer")
-         musicwin.document.write('<bgsound src=' + '"' + audioAlert + '"' + ' loop="infinite">')
+         musicWin.document.write('<bgsound src=' + '"' + audioAlert + '"' + ' loop="infinite">')
      else
-         musicwin.document.write('<embed src=\"' + audioAlert + '\" hidden="true" border="0" width="20" height="20" autostart="true" loop="true">')
-     musicwin.document.close()
+         musicWin.document.write('<embed src=\"' + audioAlert + '\" hidden="true" border="0" width="20" height="20" autostart="true" loop="true">')
+     musicWin.document.close()
  }
  // Logic: CREATE a FN to play the alarm tone IF the play box is checked  
  // use a "checked" checkbox to invoke the function
  function soundcheck(cbox) {
-     playit = cbox.checked
+     playIt = cbox.checked
  }
- // Logic: CREATE a FN to show the value of the alarm message in a note, if set
+//  // Logic: CREATE a FN to show the value of the alarm message in a note, if set
  function alarm() {
      note = document.alarm.message.value;
      // SET argument for our note var to invoke; if so show time vales as an object
@@ -76,18 +96,18 @@ var moment = require("moment");
      hrs = document.alarm.hr.value;
      min = document.alarm.mts.value;
      apm = document.alarm.am_pm.value;
-     // SET an argument, that if matched, invokes out playIt &&|| playMusic FN(s) 
-     // Otherwise keep our note on standby to take input & communicate to the user       which field needs input    
+//      // SET an argument, that if matched, invokes out playIt &&|| playMusic FN(s) 
+//      // Otherwise keep our note on standby to take input & communicate to the user       which field needs input    
      if ((document.hours.clock.value == hrs) &&
          (document.minutes.clock.value == min) &&
          (document.ampm.clock.value == apm)) {
-         if (playit)
-             playmusic()
+         if (playIt)
+             playMusic()
          else
              alert(note);
          return false
      }
-     /// CASE ALERTS \\\
+//      /// CASE ALERTS \\\
      if (hrs == '') { alert('The Hour field is empty'); return false }
      if (min == '') { alert('The Minute field is empty'); return false }
      if (apm == '') { alert('The am/pm field is empty'); return false }
@@ -98,22 +118,63 @@ var moment = require("moment");
      if (min.length > 2) { alert('The Minute is wrongly typed.'); return false }
      if (apm != 'am' && apm != 'pm') { alert('The am/pm is wrongly typed.'); return false }
      
-     //When the user has set their conditions, check every second to see if the current time matches the user's set alarm time. Once they match, run the alarm FN & match all set cases  
-     setTimeout("alarm()", 1000);
- }
+//      //When the user has set their conditions, check every second to see if the current time matches the user's set alarm time. Once they match, run the alarm FN & match all set cases  
+//      setInterval("alarm()", 1000);
+//  }
 
 class Alarm extends Component {
     constructor () {
         super();
         this.state = {
-
+            hr: "00",
+            min: "00",
+            ampmIndex: 0,
+            ampm: "AM"
         }
       }
       
-      changeHandler = event => {
-        this.setState({
-
-        });
+      changeHour(e) {
+        if(e.target.value === "0") {
+          this.setState({
+            hour: "00"
+          });
+        } else if(parseInt(e.target.value) < 10) {
+          this.setState({
+            hour: "0" + e.target.value
+          });
+        } else {
+          this.setState({
+            hour: e.target.value
+          });
+        }
+      }
+      changeMinute(e) {
+        if(e.target.value === "0") {
+          this.setState({
+            minute: "00"
+          });
+        } else if(parseInt(e.target.value) < 10) {
+          this.setState({
+            minute: "0" + e.target.value
+          });
+        } else {
+          this.setState({
+            minute: e.target.value
+          });
+        }
+      }
+      setAmPm(e) {
+        if(e.target.value === "1") {
+          this.setState({
+            ampm: "PM",
+            ampmIndex: 1
+          });
+        } else if(e.target.value === "0") {
+          this.setState({
+            ampm: "AM",
+            ampmIndex: 0  
+          });
+        }
       }
     render () {
         return(
@@ -130,9 +191,9 @@ class Alarm extends Component {
               <option>9</option>
               <option>10</option>
               <option>11</option>
-              <option>12</option>
-              
+              <option>12</option>              
             </select>
+
             <select name="min">
                 <option>01</option>
                 <option>02</option>
@@ -155,13 +216,21 @@ class Alarm extends Component {
                 <option>19</option>
                 <option>20</option>
             </select>
-            <select>
+
+            <select name='ampmIndex'>
                 <option> AM </option>
                 <option> PM </option>
             </select>
 
+            <div>
+            <button onClick={alarm}>
+                Set Alarm
+            </button>
             </div>
-        )
+
+            </div>          
+    )
     }
 }
+ }
 export default Alarm;

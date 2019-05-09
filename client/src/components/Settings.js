@@ -31,8 +31,8 @@ function Settings() {
 
             </div>
 
-            <div class = "row flex" id = "tracks">
-            
+            <div class="row flex" id="tracks">
+
             </div>
 
 
