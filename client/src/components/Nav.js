@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 
 function Nav(){
     return (
-      <wrapper id="navWrap">
-      <nav>
+      
+      <nav id ="navWrap">
       <button type="button" className="btn-block">
             <Link
             to="/alarm"
@@ -22,7 +22,7 @@ function Nav(){
           </Link>
       </button>
       </nav>
-      </wrapper>
+      
     )
 }
 

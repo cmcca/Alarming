@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 
 app.get("/song/:title", function(req,res){
-  
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         spotify.search({ type: 'track', query: req.params.title }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);

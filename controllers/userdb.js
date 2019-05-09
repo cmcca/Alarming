@@ -1,33 +1,47 @@
 var db = require("../models");
-var express = require("express");
-var apps = express();
-
-module.exports = function (app){
-
-apps.get("/user/:Name/:Email", function(req,res){
-
-    var result = {};
-
-    result.Name = req.params.User;
-    result.Email = req.params.Email;
-    result.Status = "Success";
-    
-//Search DB for email
-db.User.find({Name : result.Name})
-    .then(function (dbUser) {
-      // If we were able to successfully find User, send them back to the client
-      res.json(dbUser);
-      console.log("Success")
+var ls = require("local-storage");
 
 
-    })
-    .catch(function (err) {
-      // If an error occurred, send it to the client
-      res.json(err);
-      console.log("failure")
-    });
+  console.log("Connected to the userdb file");
 
-  })
+  var check  = {
+      find(req,res,Name, Password){
 
+         db.User.find({Name: Name, Password : Password})
+         .then(function(dbUser){
+           console.log(dbUser)
+           if (dbUser.length > 0){
+          res.json(dbUser);
+          console.log("Success")
+           }
+           else{
+             res.send("No User Found")
+           }
+         })
+         .catch(function (err) {
+          // If an error occurred, send it to the client
+          res.json(err);
+          console.log("failure")
+        });
 
-}
+      },
+      create(req,res,Name, Password){
+        var result = {};
+        result.Name = Name;
+        result.Password = Password
+        db.User.create(result)
+        res.send("User Created: " + JSON.stringify(result))
+        console.log(JSON.stringify(result))
+      },
+      alarm(req,res,alarmName,alarmTime){
+        var result = {};
+        result.alarmName = alarmName;
+       result.alarmTime = alarmTime;
+       db.Alarms.create(result);
+       res.send("Alarm Created: " + JSON.stringify(result))
+       console.log(JSON.stringify(result))
+      },
+      
+  }
+
+module.exports = check;

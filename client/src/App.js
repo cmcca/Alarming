@@ -2,9 +2,11 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav'; 
 import Splash from './components/Splash';
+import Clock from './components/Clock';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
 import Login from './components/Login';
+import Signup from "./components/Signup";
 import "./App.css";
 
 
@@ -24,6 +26,7 @@ class App extends Component {
           props => (
             <Fragment>
               <Nav {...props} />
+              <Clock {...props} />
               <Alarm {...props} />
 
             </Fragment>
@@ -41,6 +44,13 @@ class App extends Component {
           props =>(
             <Fragment>
               <Login {...props} />
+            </Fragment>
+          )
+        } />
+        <Route exact path="/signup" render={
+          props =>(
+            <Fragment>
+              <Signup {...props} />
             </Fragment>
           )
         } />
