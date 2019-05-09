@@ -59,12 +59,23 @@ $("#SubmitSong").on("click", function(){
     console.log(data.preview_url)
     $(song_dump).append("<br/><br/>")
     $(song_dump).append("<div class='card' style='width: 18rem;'><img src='" + data.album.images[0].url + "' class='card-img-top'><div class='card-body'>")
-    $(song_dump).append("<h5 class='card-title'>"+ data.album.artists[0].name +"</h5><p class='card-text'>"+ "Click Below To Preview The Alarm" + "</p><a href='"+ data.preview_url +"' class='btn btn-primary'>"+"Preview"+"</a></div></div>")
-    })
-    var song_url;
-    $.getJSON("http://localhost:3001/user/song/" + song_url)
+    $(song_dump).append("<h5 class='card-title'>"+ data.album.artists[0].name +"</h5><p class='card-text'>"+ "Click Below To Preview The Alarm" + "</p><a href='"+ data.preview_url +"' class='btn btn-primary'>"+"Preview"+"</a> <button id = 'alarmSetter' class = 'btn btn-primary'>Set Alarm</button></div></div>")
 
+    $("#alarmSetter").on("click", function(){
 
+    console.log("Button working")
+
+   
+    var song_url = data.preview_url;
+    console.log("Url to be placed in local storage" + song_url)
+     window.localStorage.clear();
+     window.localStorage.setItem('Song', song_url);
 
 
 })
+    })
+
+})
+
+
+
