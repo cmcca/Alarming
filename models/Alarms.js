@@ -11,7 +11,7 @@ var alarmSchema = new Schema({
   },
   alarmTime: {
     type: Number,
-  },
+  }
 
 });
 

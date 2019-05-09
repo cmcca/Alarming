@@ -17,10 +17,13 @@ var userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  // Alarms: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Alarms"
-  // }
+  Alarms: {
+    type: Schema.Types.ObjectId,
+    ref: "Alarms"
+  },
+  Song: {
+   type: String
+  }
 
 });
 
