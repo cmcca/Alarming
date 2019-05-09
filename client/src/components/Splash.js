@@ -16,6 +16,11 @@ function Splash(){
                 >
                 Boom
                 </Link>
+                <Link 
+                to="/signup"
+                className={window.location.pathname === "/signup" ? "signUpButton-active" : "signUpButton"}
+                >
+                </Link>
                 </div>
 
         </div>  
