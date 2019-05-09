@@ -17,8 +17,7 @@ class App extends Component {
         <Route exact path="/" render={
           props => (
             <Fragment>
-              <Splash {...props} />
-              
+              <Splash {...props} />          
             </Fragment>
           )
         } />
