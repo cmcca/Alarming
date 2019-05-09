@@ -1,4 +1,5 @@
 var db = require("../models");
+var ls = require("local-storage");
 
 
   console.log("Connected to the userdb file");
@@ -35,19 +36,11 @@ var db = require("../models");
       alarm(req,res,alarmName,alarmTime){
         var result = {};
         result.alarmName = alarmName;
-       result.alarmSong = alarmSong;
        result.alarmTime = alarmTime;
        db.Alarms.create(result);
        res.send("Alarm Created: " + JSON.stringify(result))
        console.log(JSON.stringify(result))
       },
-      song(req,res,song){
-        var result = {};
-        result.Song = song;
-        db.User.create(result);
-        res.send("Song Set: " + JSON.stringify(result))
-       console.log(JSON.stringify(result))
-      }
       
   }
 

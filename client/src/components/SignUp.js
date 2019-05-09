@@ -37,7 +37,6 @@ function SignUp(){
             
               <div class = "col-12">
               <button type = "button" class = "block" id = "SubmitSign">Submit</button>
-              <button type = "button" class= "block" id = "Login_Page">Login</button>
               </div>
             
             </div>
