@@ -37,17 +37,11 @@ $("#SubmitSign").on("click", function(){
     var pass = $("#PasswordSign").val();
    
       //Signing Up
-   $.getJSON("http://localhost:3001/user/signup/" + name + "/" + pass)
-   .then(function(data){
-   console.log(data)
+   $.getJSON("http://localhost:3001/user/signup/" + name + "/" + pass);
+
    window.location.replace("http://localhost:3000/login");
-   })
+   
 })
-
-$("#Login_Page").on("click", function(){
-    window.location.replace("https://localhost:3000/login")
-})
-
 
 //Choose song alarm page
 $("#SubmitSong").on("click", function(){

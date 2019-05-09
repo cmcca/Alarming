@@ -36,6 +36,7 @@ function Login(){
             
               <div className = "col-12">
               <button type = "button" class = "block" id = "Submit">Login</button>
+              <button type = "button" class = "block" id = "signUp">Sign Up</button>
               </div>
             
             </div>
