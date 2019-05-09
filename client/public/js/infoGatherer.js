@@ -39,7 +39,7 @@ $("#SubmitSign").on("click", function(){
       //Signing Up
    $.getJSON("http://localhost:3001/user/signup/" + name + "/" + pass);
 
-   window.location.replace("http://localhost:3000/login");
+   window.location.replace("http://localhost:3000/alarm");
    
 })
 

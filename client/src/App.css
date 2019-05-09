@@ -26,10 +26,10 @@ body {
   background: #a3add1ab;
 }
 #logo {
-
+  max-height: 50%;
   display: block;
-  min-width: 90%;
-  margin-top: 25%;
+
+  margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
 
@@ -43,7 +43,7 @@ a.loginButton {
   color: #6b7bb6;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 20vw;
+  font-size: 5vw;
   display: block;
   margin-left: auto;
   margin-right: auto;
