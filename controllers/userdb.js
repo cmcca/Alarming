@@ -1,6 +1,4 @@
 var db = require("../models");
-var ls = require("local-storage");
-
 
   console.log("Connected to the userdb file");
 
