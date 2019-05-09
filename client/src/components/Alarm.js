@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import moment from "moment";
 
-//  // SET ALARM TONE IN A VARIABLE
- var audioAlert = new Audio('');
+//  // SET ALARM TONE IN A letIABLE
+ let audioAlert = new Audio('Song');
  audioAlert.play();
 
 //  //// CREATE a FN for the current time and date 
 //  // Include hrs, mins, secs; differenciate Standard vs Military
  function allTime() {
-     var currentTime = moment();
+     let currentTime = moment();
      // now = new Date();
-     hr = moment().hours();
+     let hr = moment().hours();
      // hr = now.getHours();
-     min = moment().minute();
+     let min = moment().minute();
      // min = now.getMinutes(); 
-     sec = moment().second();
+     let sec = moment().second();
      // sec = now.getSeconds();
-     day = moment().day();
+     let day = moment().day();
      // TIME TRAVEL LOGIC (secs-mins)
      if (min <= 9) {
          min = "0" + min;
@@ -63,6 +63,7 @@ import moment from "moment";
     let minute = document.createTextNode('Miniute: '+m);
     container.appendChild(hour);
     container.appendChild(minute);
+    // CREATE a UI container to hold saved alarms
     alarms.appendChild(container);
   }
   
@@ -71,11 +72,18 @@ import moment from "moment";
     appendAlarm(hour.value, minute.value);
   });
 
-//  // Logic: CREATE a variable to hold our alert tone 
+//  // Logic: CREATE a letiable to hold our alert tone 
 //  // SET timer tone to to play through a new browser window
  playIt = false
  function playMusic() {
-     musicWin = window.open("", "", "width=100,height=100")
+    let alarmUrl = window.localStorage.getItem('Song');
+    if (alarmUrl){
+    window.location.replace(alarmUrl);
+    } else{
+    alert("No Alarm Sound Set");
+    }
+
+    musicWin = window.open("", "", "width=100,height=100")
      if (navigator.appName == "Microsoft Internet Explorer")
          musicWin.document.write('<bgsound src=' + '"' + audioAlert + '"' + ' loop="infinite">')
      else
@@ -90,7 +98,7 @@ import moment from "moment";
 //  // Logic: CREATE a FN to show the value of the alarm message in a note, if set
  function alarm() {
      note = document.alarm.message.value;
-     // SET argument for our note var to invoke; if so show time vales as an object
+     // SET argument for our note let to invoke; if so show time vales as an object
      if (note == '') { note = 'ALARM!!'; }
      // SHOW hr, min, am & pm [time object] values to be set by user
      hrs = document.alarm.hr.value;
@@ -224,7 +232,7 @@ class Alarm extends Component {
 
             <div>
             <button onClick={alarm}>
-                Set Alarm
+                Save Alarm
             </button>
             </div>
 
