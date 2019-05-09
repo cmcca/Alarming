@@ -6,6 +6,7 @@ import Clock from './components/Clock';
 import Alarm from './components/Alarm';
 import Settings from './components/Settings';
 import Login from './components/Login';
+import Signup from "./components/SignUp";
 import "./App.css";
 
 
@@ -43,6 +44,13 @@ class App extends Component {
           props =>(
             <Fragment>
               <Login {...props} />
+            </Fragment>
+          )
+        } />
+        <Route exact path="/signup" render={
+          props =>(
+            <Fragment>
+              <Signup {...props} />
             </Fragment>
           )
         } />

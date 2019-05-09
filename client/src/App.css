@@ -95,4 +95,6 @@ h1.currentTime {
   display: flex;
   justify-content: center;
 }
-
+#wronguser, #signcomp{
+display: none;
+}
