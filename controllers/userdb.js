@@ -41,10 +41,6 @@ var ls = require("local-storage");
        res.send("Alarm Created: " + JSON.stringify(result))
        console.log(JSON.stringify(result))
       },
-      song(req,res,song){
-        ls.clear();
-        ls.set(Song, song);
-      }
       
   }
 
