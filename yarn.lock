@@ -25,6 +25,11 @@ ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+alarm@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/alarm/-/alarm-2.0.0.tgz#9c8177285325dcaaadda74ff2c11b781212a35f3"
+  integrity sha1-nIF3KFMl3Kqt2nT/LBG3gSEqNfM=
+
 ansi-align@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ansi-align/-/ansi-align-2.0.0.tgz#c36aeccba563b89ceb556f3690f0b1d9e3547f7f"
