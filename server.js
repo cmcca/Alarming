@@ -120,12 +120,6 @@ app.get("/user/alarm/:alarmName/:alarmTime", function(req,res){
   check.alarm(req,res,alarmName,alarmTime);
 })
 
-app.get("/user/song/:song", function(req,res){
-  song = req.params.song;
-  check.song(req,res,song);
-})
-
-
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

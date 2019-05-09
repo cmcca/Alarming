@@ -13,7 +13,7 @@ function Settings() {
                     <br />
                     <input type="text" id="songName"></input>
                     <br />
-                    <button type="button" class="block" id="SubmitSong"></button>
+                    <button type="button" class="block" id="SubmitSong">Search</button>
                 </div>
 
 
