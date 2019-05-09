@@ -7,7 +7,7 @@ import logo from './alarming.svg'
 function Splash(){
     return(
         <div className="container">
-            <img src={logo} alt="Alarming" id="logo" />
+            <img src={logo} alt="Alarming" id="logo" className="animated infinite shake" />
 
                 <div className="loginButton">
                 <Link
@@ -15,6 +15,11 @@ function Splash(){
                 className={window.location.pathname === "/login" ? "loginButton-active" : "loginButton"}
                 >
                 Boom
+                </Link>
+                <Link 
+                to="/signup"
+                className={window.location.pathname === "/signup" ? "signUpButton-active" : "signUpButton"}
+                >
                 </Link>
                 </div>
 

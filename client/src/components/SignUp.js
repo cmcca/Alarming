@@ -1,13 +1,14 @@
 import React from 'react';
+import { Script } from 'vm';
 
-function Login(){
+function Signup(){
     return(
-        <div class = "loginPage">
+        <div class = "signUpPage">
           <br/>
            <div class = "row">
 
              <div class = "col-12 flex">
-             <h1>Enter Login: </h1>
+             <h1>Create Login: </h1>
              </div>
 
             </div>
@@ -17,7 +18,7 @@ function Login(){
               <div class = "col-12 flex">
               <h2>Username: </h2>
               <br/>
-              <input type = "text" id = "Username"></input>
+              <input type = "text" id = "UsernameSign"></input>
               </div>
             
             </div>
@@ -27,7 +28,7 @@ function Login(){
               <div class = "col-12 flex">
               <h2>Password: </h2>
               <br/>
-              <input type = "text" id = "Password"></input>
+              <input type = "password" id = "PasswordSign"></input>
               </div>
             
             </div>
@@ -35,14 +36,18 @@ function Login(){
             <div class = "row flex">
             
               <div class = "col-12">
-              <button type = "button" class = "block" id = "Submit">Login</button>
+              <button type = "button" class = "block" id = "SubmitSign">Submit</button>
               </div>
             
             </div>
 
-         </div>
+            <div class = "row flex">
+            <h1 id = "signcomp">Sign up complete!</h1>
+            </div>
 
+         </div>
     )
+   
 }
 
-export default Login;
+export default Signup;

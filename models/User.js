@@ -9,17 +9,22 @@ var userSchema = new Schema({
     type: String,
     required: true
   },
-  Email: {
+  Password: {
     type: String,
     required: true
   },
-  date: {
+  Date: {
     type: Date,
     default: Date.now
   },
-  Status: {
-    type: String
+  Alarms: {
+    type: Schema.Types.ObjectId,
+    ref: "Alarms"
+  },
+  Song: {
+   type: String
   }
+
 });
 
 var User = mongoose.model("user", userSchema);
