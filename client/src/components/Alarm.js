@@ -20,7 +20,7 @@ class Alarm extends Component {
     render () {
         return(
             <div className="form-group" id="alarmTime">
-            <select name="hr">
+            <select name="hr" className="dropdown-menu">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -61,7 +61,8 @@ class Alarm extends Component {
                 <option> AM </option>
                 <option> PM </option>
             </select>
-
+            
+            
             </div>
         )
     }

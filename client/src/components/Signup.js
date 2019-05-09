@@ -1,7 +1,7 @@
 import React from 'react';
 import { Script } from 'vm';
 
-function Signup(){
+function SignUp(){
     return(
         <div class = "signUpPage">
           <br/>
@@ -51,4 +51,4 @@ function Signup(){
    
 }
 
-export default Signup;
+export default SignUp;
